@@ -13,7 +13,7 @@
   <div class="price" id="price">Loading...</div>
   <script>
     const priceEl = document.getElementById('price');
-    const eventSource = new EventSource('http://localhost:3000/api/events');
+    const eventSource = new EventSource('https://live-stock-price-node.onrender.com/api/events');
   
     eventSource.onopen = function() {
       console.log("✅ Connected to /events");
