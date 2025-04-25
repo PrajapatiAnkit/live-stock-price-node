@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
+const cors = require('cors');
 
 let clients = [];
 let latestPrice = [];
@@ -19,6 +20,10 @@ let stocks = [
   }
   
 ];
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(express.static('public'));
 
