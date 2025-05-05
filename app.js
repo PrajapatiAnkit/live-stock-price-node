@@ -47,7 +47,9 @@ setInterval(async () => {
   for(const stock of stocks){
     try {
       const response = await axios.get(`https://groww.in/v1/api/stocks_data/v1/tr_live_prices/exchange/NSE/segment/CASH/${stock.symbol}/latest`);
-      let lastPrice = response.data?.ltp?.toFixed(2);
+    //  let lastPrice = response.data?.ltp?.toFixed(2);
+      let lastPrice = Math.floor(1000+Math.random()*9000);
+      
       console.log("lastPrice" , lastPrice);
      // lastPrice =  generateRandomPrice();
       const eventData = {symbol: stock.symbol, price: lastPrice}
