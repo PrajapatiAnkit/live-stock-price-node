@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HCLTECH Price</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .price {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📈 HCLTECH Price</h1>
+    <div class="price" id="price">Loading...</div>
+    <script>
+      const priceEl = document.getElementById("price");
+      const eventSource = new EventSource(
+        "https://live-stock-price-node.onrender.com/api/events"
+      );
+
+      eventSource.onopen = function () {
+        console.log("✅ Connected to /events");
+      };
+
+      eventSource.onmessage = function (event) {
+        console.log("📨 Message received:", event.data);
+        const data = JSON.parse(event.data);
+        priceEl.innerText = `₹ ${data.price}`;
+      };
+
+      eventSource.onerror = function (e) {
+        console.error("❌ EventSource error", e);
+      };
+    </script>
+  </body>
+</html>

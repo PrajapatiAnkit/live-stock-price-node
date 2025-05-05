@@ -1,34 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-critters-container>
 <head>
-  <meta charset="UTF-8">
-  <title>HCLTECH Price</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    .price { font-size: 2rem; }
-  </style>
-</head>
+  <meta charset="utf-8">
+  <title>LiveStockPrice</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles-5INURTSO.css"></head>
 <body>
-  <h1>📈 HCLTECH Price</h1>
-  <div class="price" id="price">Loading...</div>
-  <script>
-    const priceEl = document.getElementById('price');
-    const eventSource = new EventSource('https://live-stock-price-node.onrender.com/api/events');
-  
-    eventSource.onopen = function() {
-      console.log("✅ Connected to /events");
-    };
-  
-    eventSource.onmessage = function(event) {
-      console.log("📨 Message received:", event.data);
-      const data = JSON.parse(event.data);
-      priceEl.innerText = `₹ ${data.price}`;
-    };
-  
-    eventSource.onerror = function(e) {
-      console.error("❌ EventSource error", e);
-    };
-  </script>
-  
-</body>
+  <app-root></app-root>
+<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-NAPFGAUF.js" type="module"></script></body>
 </html>
